@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee</title>
+</head>
+<body>
+    <script>
+        /*
+        Employee
+        --------------------------------------
+        + id: Number
+        + firstname: String
+        + lastname: String
+        + salary: Number
+        --------------------------------------
+        + employee (id:number, firstname:string, lastname:string, salary:number)
+        + getID(): Number
+        + getFirstname(): String
+        + getLastname(): String
+        + getName():String
+        + getSalary(): Number
+        + getAnnualSalary(): Number
+        + raiseSalary(percent: Number): Number
+        */
+
+        class Employee{
+            // id = 0;
+            // firstname = 'Hoang';
+            // lastname = 'Van_Hoan';
+            // salary = 100000000;
+            constructor (ts_id, ts_firstname, ts_lastname, ts_salary){
+                this.id         = ts_id;
+                this.firstname  = ts_firstname;
+                this.lastname  = ts_lastname;
+                this.salary  = ts_salary;
+            }
+
+            // cài đặt các phương thức trả về các thuộc tính của đối tượng
+            getID(){
+                return this.id;
+            }
+            getFirstname(){
+                return this.firstname;
+            }
+            getLastname(){
+                return this.lastname;
+            }
+            getName(){
+                let name = this.firstname + " " + this.lastname;
+                return name;
+            }
+            getSalary(){
+                return this.salary;
+            }
+            getAnnualSalary(){
+                let annualSalary = this.salary * 12;
+                return annualSalary;
+            }
+            raiseSalary(ts_percent){
+                let newSalary = this.salary + this.salary * ts_percent/100;
+                return newSalary;
+            }
+        }
+
+        // khởi tạo đối tượng
+        let objEmployee = new Employee (10, 'Pham', 'Binh An', 10000000);
+
+        // Truy xuất các thuộc tính và phương thức của đối tượng
+        // console.log()--------------------------------------------
+        console.log( objEmployee.getID() );
+        console.log( objEmployee.getFirstname() );
+        console.log( objEmployee.getLastname() );
+        console.log ( objEmployee.getName() );
+        console.log ( objEmployee.getSalary() );
+        console.log ( objEmployee.getAnnualSalary() );
+
+        // tăng lương 20%
+        let luong_moi_hang_thang = objEmployee.raiseSalary(20);
+        let luong_moi_hang_nam = luong_moi_hang_thang * 12;
+
+        // hiển thị lương hàng tháng, hàng năm sau khi tăng lương lên 20%
+        console.log ( luong_moi_hang_thang );
+        console.log ( luong_moi_hang_nam );
+
+    </script>
+    
+</body>
+</html>
