@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HÌNH CHỮ NHẬT</title>
+</head>
+<body>
+    <script>
+        /* RECTANGLE
+        -----------------------------------------
+        + long  : int // chiều dài hình chữ nhật
+        + width : int // chiều rộng hình chữ nhật
+        -----------------------------------------
+        + tinhCV ( long, width )   : int   //  tính chu vi
+        + tinhDT ( long, width )  : int   //  tính diện tích
+        */
+
+        class Rectangle{
+            long    = 0;
+            width   = 0;
+            constructor (ts_long, ts_width){
+                this.long   = ts_long;
+                this.width  = ts_width;
+            }
+
+            // cài đặt phương thức getter trả về giá trị của các thuộc tính của đối tượng
+            getLong(){
+                return this.long;
+            }
+            getWidth(){
+                return this.width;
+            }
+
+            // cài đặt phương thức tính chu vi hình chữ nhật
+            tinhCV(){
+                let ketqua = (this.long +  this.width)*2;
+                return ketqua;
+            }
+
+            // cài đặt phương thức tính diện tích
+            tinhDT(){
+                let ketqua = (this.long *  this.width);
+                return ketqua;
+            }
+        }
+
+        // Khởi tạo đối tượng
+        let myRectangle = new Rectangle (12, 10);
+
+        //console.log------------------------------
+        console.log ( myRectangle.getLong () );
+        console.log ( myRectangle.getWidth ());
+        console.log ( myRectangle.tinhDT ());
+        console.log ( myRectangle.tinhCV ());
+
+    </script>
+    
+</body>
+</html>
