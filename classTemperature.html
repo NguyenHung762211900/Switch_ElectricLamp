@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nhiệt độ</title>
+</head>
+<body>
+    <script>
+        /*
+        TEMPERATURE
+        ---------------------------------
+        + giatri: int
+        ---------------------------------
+        + convertCtoF(): double
+        + convertCtoK(): double
+        */
+        class Temperature{
+            constructor (ts_giatri){
+                this.giatri = ts_giatri;
+            }
+
+            // cài đặt phương thức trả về giá trị thuộc tính của đối tượng
+            getValue(){
+                return this.giatri
+            }
+
+            // cài đặt phương thức chuyển đổi đơn vị đo nhiệt độ
+            convert_CtoF(){
+                let ketqua = this.giatri *9/5 + 32;
+                return ketqua;
+            }
+            convert_CtoK(){
+                let ketqua = this.giatri+273;
+                return ketqua;
+            }
+        }
+
+        // khởi tạo đối tượng
+        let temperature = new Temperature(100);
+        console.log( temperature.convert_CtoF() ); // 212
+        console.log( temperature.convert_CtoK() ); // 373
+
+
+    </script>
+    
+</body>
+</html>
