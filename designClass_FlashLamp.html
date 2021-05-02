@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlashLamp</title>
+</head>
+
+<body>
+    <script>
+        /*
+        BATTERY                             FLASHLAMP
+        -----------------------             ----------------------------------------------------
+        - energy:int                        - status:boolean    // bật hay tắt?
+                                            - battery: Battery  // có pin hay không?  
+        -----------------------             ----------------------------------------------------
+        + Battery()                         + flashlamp()
+        + setEnergy(int):void               + setBattery(Battey):void
+        + getEnergy():int                   + getBateryInfo():int
+        + decreaseEnergy():void             + light():void
+                                            + turnOn():void
+                                            + turnOff():void
+        -----------------------             ----------------------------------------------------
+        */
+        class Battery {
+            constructor() {
+                this.energy = 0;
+            }
+
+            // cài đặt phương thức thiết lập giá trị thuộc tính energy cho objBattery
+            setEnergy(energy) {
+                this.energy = energy;
+            }
+
+            // cài đặt phương thức trả về giá trị của thuộc tính energy của objBattery
+            getEnergy() {
+                return this.energy;
+            }
+
+            // cài đặt phương thức làm giảm giá trị energy của objBattery
+            decreaseEnergy() {
+                if (this.energy > 0) {
+                    this.energy--;
+                }
+            }
+        }
+
+        // khởi tạo đối tượng objBattery
+        // let objBattery = new Battery();
+        // objBattery.setEnergy(10);
+        // console.log ( objBattery.getEnergy() );
+        // console.log ( objBattery.decreaseEnergy() );
+
+
+        class FlashLamp {
+            constructor() {
+                //this.status = status;
+                //this.battery = battery;
+            }
+
+            // cài đặt phương thức thiết lập giá trị battery cho objFlashLamp
+            setBattery(battery) {
+                this.battery = battery;
+            }
+
+            // cài đặt phương thức trả về thông tin của battery cho objFlashLamp
+            getBatteryInfo() {
+               return this.battery.getEnergy();
+            }
+
+            // cài đặt phương thức chiếu sáng
+            light() {
+                if (this.status) {
+                    alert("Lighting");
+                }
+                else {
+                    alert(" Not lighting");
+                }
+            }
+
+            // cài đặt phương thức bật đèn
+            turnOn() {
+                this.status = true;
+            }
+
+            // cài đặt phương thức tắt đèn
+            turnOff() {
+                this.status = false;
+            }
+        }
+
+        // Khởi tạo đối tượng
+
+        let objBattery = new Battery();
+        objBattery.setEnergy(10);
+        let objFlashLamp = new FlashLamp();
+        objFlashLamp.setBattery(objBattery);
+
+        //console.log-------------------------
+        console.log ( "Mức năng lượng của objBatterry là: "+ objFlashLamp.getBatteryInfo() );
+        objFlashLamp.light();
+
+        document.write ("Turn on </br>");
+        objFlashLamp.turnOn();
+        objFlashLamp.light();
+        //console.log ( objFlashLamp.light() );
+        document.write ( "Mức năng lượng của objBatterry là: "+ objFlashLamp.getBatteryInfo() + "</br>");
+
+        document.write ("Turn off </br>");
+        objFlashLamp.turnOff();
+        objFlashLamp.light();
+        //console.log ( objFlashLamp.light() );
+    </script>
+</body>
+</html>
