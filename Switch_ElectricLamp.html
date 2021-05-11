@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Switch_ElectricLamp</title>
+</head>
+<body>
+    <script>
+        /*
+        SwitchButton                                ElectricLamp
+        ----------------------------------          --------------------------------
+        - status:boolean                            - status:boolean
+        - lamp:ElectricLamp                         
+        ----------------------------------          --------------------------------
+        + SwitchButton()                            + ElectricLamp()
+        + connectToLamp(ElectricLamp):void          + turnOn():void
+        + SwitchOn():void                             + turnOff():void
+        + SwitchOff():void
+        ----------------------------------          --------------------------------
+        */
+
+        class SwitchButton{
+            status;
+            bong_den;
+            constructor(){
+                this.status = status;
+            }
+
+            // Kết nối công tắc tới đèn 
+            connectToLamp(bong_den){
+                console.log ("đã kết nối công tắc tới đèn");
+            }
+
+            // Bật công tắc
+            SwitchOn(){
+                this.status = true;
+                bong_den.turnOn();
+            }
+            SwitchOff(){
+                this.status = false;
+                bong_den.turnOff();
+            }
+        }
+
+        class ElectricLamp{
+            status;
+            constructor(){
+                this.status = status;
+            }
+            turnOn(){
+                this.status = true;
+                console.log("đèn sáng");
+            }
+            turnOff(){
+                this.status = false;
+                console.log("đèn không sáng");
+            }
+        }
+
+        // khởi tạo đối tượng bóng đèn
+        let bong_den = new ElectricLamp(); 
+
+        // khởi tạo đối tượng công tắc
+        let cong_tac = new SwitchButton();
+
+        // kết nối công tắc với bóng đèn
+        cong_tac.connectToLamp(bong_den);
+
+        // Dùng công tắc điều khiển bóng đèn
+        cong_tac.SwitchOn();
+        cong_tac.SwitchOff();
+
+        
+
+    </script>
+</body>
+</html>
