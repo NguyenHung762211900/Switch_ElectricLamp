@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adam-Eva</title>
+</head>
+<body>
+    <script>
+        /*
+        APPLE                               HUMAN
+        -----------------------------       ---------------------------------------
+        - weight: int                       - name: String
+                                            - gender: Boolean
+                                            - weight: int
+        -----------------------------       ---------------------------------------
+        + Apple()                           + Human()
+        + decrease():void                   + isMale():Boolean
+        + isEmpty():boolean                 + setGender(Boolean):void
+        + getWeight():int                   + say(string):void 
+                                            + eat(apple: Apple):void
+                                            + checkApple(Apple):Boolean
+                                            + getName():String
+                                            + setName(String):void
+                                            + getWeight():int
+                                            + setWeight(int):void
+        -----------------------------       ---------------------------------------
+        */
+        class Apple{
+
+            //thuộc tính khối lượng
+            weight;
+
+            // hàm kiến tạo
+            constructor (){
+                this.weight = 10;
+            }
+
+            // cài đặt phương thức làm giảm khối lượng
+            decrease(){
+                this.weight = this.weight -1;
+            }
+
+            // cài đặt phương thức cho biết khối lượng quả táo có bằng 0 hay không?
+            isEmpty(){
+                if (this.weight == 0){
+                    return true;
+                }
+                else if (this.weight > 0){
+                    return false;
+                }
+            }
+
+            // cài đặt phương thức nhận giá trị khối lượng quả táo
+            getWeight(){
+                return this.weight;
+            }
+        }
+
+        class Human {
+            name;       // tên
+            gender;     // giới tính
+            weight;     // cân nặng
+            constructor (name, gender, weight ){
+                this.name   = name;
+                this.gender = gender;
+                this.weight = weight;
+            }
+
+            // cài đặt phương thức kiểm tra có phải giới tính Nam?
+            isMale(){
+                if (this.gender == "male"){
+                    return true;
+                }
+                else if (this.gender == "female" ){
+                    return false;
+                }
+            }
+
+            //cài đặt phương thức thiết lập giới tính
+            setGender(gender){
+                if (gender == true){
+                    this.gender = "male";
+                }
+                else if (gender == false){
+                    this.gender = "female";
+                }
+            }
+
+            // cài đặt phương thức trả về tên đối tượng
+            getName(){
+                if (this.gender == "male"){
+                    return this.name = "Adam";
+                }
+                else if (this.gender == "female"){
+                    return this.name = "Eva";
+                }
+            }
+
+            getWeight(){
+                return this.weight;
+            }
+
+            // cài đặt phương thức nói
+            say(){
+                if(this.getName() == "Adam"){
+                    console.log("Anh ăn rồi, em ăn đi") ;
+                }
+                else if (this.getName() == "Eva") {
+                    console.log("Em ăn rồi, anh ăn đi") ;
+                }
+                
+            }
+
+            // cài đặt phương thức kiểm tra khối lượng quả táo
+            checkApple(objApple){
+                   if(objApple.isEmpty() == true){
+                       return true;
+                   }
+                   else{
+                       return false;
+                   }
+            } 
+
+            // cài đặt phương thức ăn táo
+            eat(){
+                this.weight = this.weight + 1;
+                objApple.weight = objApple.weight -1;
+            }
+        }
+        //--------------------------------------------------------
+        let objApple = new Apple ();
+
+            objApple.getWeight();
+            console.log( objApple.getWeight() );
+
+        // tạo ra Adam
+        let objAdam = new Human("Adam", "male", 60);
+            objAdam.getWeight();
+
+            // kiểm tra giới tính của Adam có phải là Nam
+            objAdam.isMale();
+            console.log( objAdam.isMale() );
+
+        // tạo ra Eva
+        let objEva = new Human("Eva", "female", 50);
+            objAdam.getWeight();
+
+            // kiểm tra giới tính của Eva có phải là Nữ
+            objEva.isMale();
+            console.log( objEva.isMale() );
+
+            /*  Kiểm tra có phải khối lượng quả táo là 0 (hết táo)? 
+                - nếu trả về true - hết táo
+                - nếu trả về false - còn táo -> ăn táo
+            */
+
+            // Ăn táo 
+            let Adam_kiem_tra = objAdam.checkApple(objApple);
+            if(Adam_kiem_tra == false){
+                objAdam.eat();
+                objAdam.say();
+                objEva.eat();
+                objEva.say();
+                
+            }
+            if(objApple.weight == 0){
+                console.log("hết táo");
+            }
+
+            console.log(objAdam);
+            console.log(objEva);
+            console.log (objApple);
+    </script>
+</body>
+</html>
